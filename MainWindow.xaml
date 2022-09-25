@@ -15,19 +15,28 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" >
             <Grid.ColumnDefinitions>
+                <ColumnDefinition />
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="150" x:Name="GridChange"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Тип связи">
+            <ComboBox SelectionChanged="typeComboBox_SelectionChanged" x:Name="typeComboBox" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Тип связи">
+                <TextBlock>
+                    Витая пара
+                </TextBlock>
+                <TextBlock>
+                    Оптоволокно
+                </TextBlock>
+                <TextBlock>
+                    WI-FI
+                </TextBlock>
             </ComboBox>
-            <ComboBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Характеристика линии">
+            <ComboBox x:Name="TypeLine" Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="Характеристика линии">
             </ComboBox>
-            <ComboBox Grid.Row="0" Grid.Column="2" materialDesign:HintAssist.Hint="Скорость передачи">
+            <ComboBox x:Name="Speed" Grid.Row="0" Grid.Column="2" materialDesign:HintAssist.Hint="Скорость передачи">
                 <TextBlock>
                     10 мбит/c
                 </TextBlock>
@@ -38,8 +47,14 @@
                     1 гбит/c
                 </TextBlock>
             </ComboBox>
-            <TextBox VerticalAlignment="Center" Grid.Column="4" materialDesign:HintAssist.Hint="Метраж (м)"/>
-            <ComboBox Grid.Row="0" Grid.Column="3" materialDesign:HintAssist.Hint="Тип кадра Ethernet">
+            <TextBox PreviewTextInput="NumberValidationTextBox" x:Name="LengthTextBox" VerticalAlignment="Center" Grid.Column="4" materialDesign:HintAssist.Hint="Метраж (м)"/>
+            <ComboBox x:Name="EthernetType" Grid.Row="0" Grid.Column="3" materialDesign:HintAssist.Hint="Тип кадра Ethernet">
+                <TextBlock>
+                    Fast Ethernet
+                </TextBlock>
+                <TextBlock>
+                    Gigabit Ethernet
+                </TextBlock>
             </ComboBox>
         </Grid>
         <Grid Grid.Row="1">
@@ -49,6 +64,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Source="/images/pc.png" Width="25px"/>
+            <Button Click="Button_Click" Grid.Column="1">Check</Button>
             <Image Grid.Column="2" Source="/images/pc.png" Width="25px"/>
 
         </Grid>
