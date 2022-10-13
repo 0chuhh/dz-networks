@@ -20,7 +20,6 @@
                 <ColumnDefinition />
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="150" x:Name="GridChange"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <ComboBox SelectionChanged="typeComboBox_SelectionChanged" x:Name="typeComboBox" Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="Тип связи">
@@ -46,16 +45,18 @@
                 <TextBlock>
                     1 гбит/c
                 </TextBlock>
-            </ComboBox>
-            <TextBox PreviewTextInput="NumberValidationTextBox" x:Name="LengthTextBox" VerticalAlignment="Center" Grid.Column="4" materialDesign:HintAssist.Hint="Метраж (м)"/>
-            <ComboBox x:Name="EthernetType" Grid.Row="0" Grid.Column="3" materialDesign:HintAssist.Hint="Тип кадра Ethernet">
                 <TextBlock>
-                    Fast Ethernet
+                    10 гбит/c
                 </TextBlock>
                 <TextBlock>
-                    Gigabit Ethernet
+                    40 гбит/c
+                </TextBlock>
+                <TextBlock>
+                    100 гбит/c
                 </TextBlock>
             </ComboBox>
+            <TextBox PreviewTextInput="NumberValidationTextBox" x:Name="LengthTextBox" VerticalAlignment="Center" Grid.Column="3" materialDesign:HintAssist.Hint="Метраж (м)"/>
+            
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

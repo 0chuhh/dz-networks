@@ -39,16 +39,13 @@ namespace networks
             TextBlock selectedType = (TextBlock)typeComboBox?.SelectedItem;
             ComboBox typeLine = TypeLine;
             TextBlock speed = (TextBlock)Speed?.SelectedItem;
-            TextBlock ethernetType = (TextBlock)EthernetType?.SelectedItem;
             string lengthLine = LengthTextBox?.Text;
-            if (selectedType?.Text.ToString() == "Витая пара" && typeLine?.SelectedItem != null && speed != null && ethernetType != null && lengthLine != "")
+            if (selectedType?.Text.ToString() == "Витая пара" && typeLine?.SelectedItem != null && speed != null  && lengthLine != "")
             {
                 if(typeLine?.SelectedItem.ToString() == "4 Жилы")
                 {
                     if(speed.Text.ToString() == "10 мбит/c")
                     {
-                        if(ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
                             if(Int32.Parse(lengthLine) < 100)
                             {
                                 MessageBox.Show("Succes");
@@ -57,23 +54,11 @@ namespace networks
                             {
                                 MessageBox.Show("Failed");
                             }
-                        }
-                        if(ethernetType.Text.ToString() == "Gigabit Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
+                        
                     }
-                    if(speed.Text.ToString() == "100 мбит/c")
+                    else if(speed.Text.ToString() == "100 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
+                        
                             if (Int32.Parse(lengthLine) < 100)
                             {
                                 MessageBox.Show("Succes");
@@ -82,23 +67,9 @@ namespace networks
                             {
                                 MessageBox.Show("Failed");
                             }
-                        }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
                     }
-                    if (speed.Text.ToString() == "1 гбит/c")
+                    else if (speed.Text.ToString() == "1 гбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
                             if (Int32.Parse(lengthLine) < 100)
                             {
                                 MessageBox.Show("Succesб, but 100 mb/s");
@@ -107,26 +78,17 @@ namespace networks
                             {
                                 MessageBox.Show("Failed");
                             }
-                        }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes, but 100 mb/s");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed");
+
                     }
                 }
                 if(typeLine?.SelectedItem.ToString() == "8 Жил")
                 {
                     if (speed.Text.ToString() == "10 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
                             if (Int32.Parse(lengthLine) < 100)
                             {
                                 MessageBox.Show("Succes");
@@ -135,80 +97,55 @@ namespace networks
                             {
                                 MessageBox.Show("Failed");
                             }
+                    }
+                    else if (speed.Text.ToString() == "100 мбит/c")
+                    {
+                            if (Int32.Parse(lengthLine) < 100)
+                            {
+                                MessageBox.Show("Succes");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed");
+                            }
+                    }
+                    else if (speed.Text.ToString() == "1 гбит/c")
+                    {
+                            if (Int32.Parse(lengthLine) < 100)
+                            {
+                                MessageBox.Show("Succes");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed");
+                            }
+                    }
+                    else if (speed.Text.ToString() == "10 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 100)
+                        {
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
-                    if (speed.Text.ToString() == "100 мбит/c")
+                    else
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
-                    }
-                    if (speed.Text.ToString() == "1 гбит/c")
-                    {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes, but 100 mb/s");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
-                        }
+                        MessageBox.Show("Succes, but 10 гбит/c");
+
+
                     }
                 }
             }
-            if(selectedType?.Text.ToString() == "Оптоволокно" && typeLine?.SelectedItem != null && speed != null && ethernetType != null && lengthLine != "")
+            if(selectedType?.Text.ToString() == "Оптоволокно" && typeLine?.SelectedItem != null && speed != null  && lengthLine != "")
             {
-                if(typeLine?.SelectedItem.ToString() == "Одномодовое")
+                if(typeLine?.SelectedItem.ToString() == "Ом 1")
                 {
                     if (speed.Text.ToString() == "10 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
-                        {
-                            if (Int32.Parse(lengthLine) < 100000)
+                            if (Int32.Parse(lengthLine) < 2000)
                             {
                                 MessageBox.Show("Succes");
                             }
@@ -216,150 +153,253 @@ namespace networks
                             {
                                 MessageBox.Show("Failed");
                             }
+                    }
+                    if (speed.Text.ToString() == "100 мбит/c")
+                    {
+                            if (Int32.Parse(lengthLine) < 2000)
+                            {
+                                MessageBox.Show("Succes");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed");
+                            }
+                    }
+                    if (speed.Text.ToString() == "1 гбит/c")
+                    {
+                            if (Int32.Parse(lengthLine) < 275)
+                            {
+                                MessageBox.Show("Succes");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed");
+                            }
+                    }
+                    if (speed.Text.ToString() == "10 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 33)
+                        {
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 100000)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "40 гбит/c")
+                    {
+                        MessageBox.Show("Failed");
+
+                    }
+                    if (speed.Text.ToString() == "100 гбит/c")
+                    {
+                        MessageBox.Show("Failed");
+
+                    }
+                }
+                if(typeLine?.SelectedItem.ToString() == "Ом 2")
+                {
+                    if (speed.Text.ToString() == "10 мбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 2000)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
                         }
                     }
                     if (speed.Text.ToString() == "100 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
+                        if (Int32.Parse(lengthLine) < 2000)
                         {
-                            if (Int32.Parse(lengthLine) < 100000)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 100000)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
                     if (speed.Text.ToString() == "1 гбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
+                        if (Int32.Parse(lengthLine) < 550)
                         {
-                            if (Int32.Parse(lengthLine) < 100000)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 100000)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
+                    if (speed.Text.ToString() == "10 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 82)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "40 гбит/c")
+                    {
+                        MessageBox.Show("Failed");
+
+                    }
+                    if (speed.Text.ToString() == "100 гбит/c")
+                    {
+                        MessageBox.Show("Failed");
+
+                    }
                 }
-                if(typeLine?.SelectedItem.ToString() == "Многомодовое")
+                if(typeLine?.SelectedItem.ToString() == "Ом 3")
                 {
                     if (speed.Text.ToString() == "10 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
+                        if (Int32.Parse(lengthLine) < 2000)
                         {
-                            if (Int32.Parse(lengthLine) < 550)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 550)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
                     if (speed.Text.ToString() == "100 мбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
+                        if (Int32.Parse(lengthLine) < 2000)
                         {
-                            if (Int32.Parse(lengthLine) < 550)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 550)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
                     if (speed.Text.ToString() == "1 гбит/c")
                     {
-                        if (ethernetType.Text.ToString() == "Fast Ethernet")
+                        if (Int32.Parse(lengthLine) < 550)
                         {
-                            if (Int32.Parse(lengthLine) < 250)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Succes");
                         }
-                        if (ethernetType.Text.ToString() == "Gigabit Ethernet")
+                        else
                         {
-                            if (Int32.Parse(lengthLine) < 250)
-                            {
-                                MessageBox.Show("Succes");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed");
-                            }
+                            MessageBox.Show("Failed");
                         }
                     }
+                    if (speed.Text.ToString() == "10 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 300)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "40 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 100)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+
+                    }
+                    if (speed.Text.ToString() == "100 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 100)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+
+                    }
                 }
+                if(typeLine?.SelectedItem.ToString() == "Ом 4")
+                {
+                    if (speed.Text.ToString() == "10 мбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 2000)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "100 мбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 2000)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "1 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 1000)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "10 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 550)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                    }
+                    if (speed.Text.ToString() == "40 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 150)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+
+                    }
+                    if (speed.Text.ToString() == "100 гбит/c")
+                    {
+                        if (Int32.Parse(lengthLine) < 150)
+                        {
+                            MessageBox.Show("Succes");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed");
+                        }
+
+                    }
+                }
+
             }
-            if (selectedType?.Text.ToString() == "WI-FI" && typeLine?.SelectedItem != null && speed != null && ethernetType == null && lengthLine != "")
+            if (selectedType?.Text.ToString() == "WI-FI" && typeLine?.SelectedItem != null && speed != null && lengthLine != "")
             {
                 if (typeLine?.SelectedItem.ToString() == "2.4 ГГц")
                 {
@@ -374,7 +414,7 @@ namespace networks
                             MessageBox.Show("Failed");
                         }
                     }
-                    if (speed.Text.ToString() == "100 мбит/c")
+                    else if (speed.Text.ToString() == "100 мбит/c")
                     {
                         if (Int32.Parse(lengthLine) < 150)
                         {
@@ -385,7 +425,7 @@ namespace networks
                             MessageBox.Show("Failed");
                         }
                     }
-                    if (speed.Text.ToString() == "1 гбит/c")
+                    else if (speed.Text.ToString() == "1 гбит/c")
                     {
                         if (Int32.Parse(lengthLine) < 150)
                         {
@@ -395,6 +435,11 @@ namespace networks
                         {
                             MessageBox.Show("Failed");
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Succes, but 100 mb/s");
+
                     }
                 }
                 if (typeLine?.SelectedItem.ToString() == "5 ГГц")
@@ -410,7 +455,7 @@ namespace networks
                             MessageBox.Show("Failed");
                         }
                     }
-                    if (speed.Text.ToString() == "100 мбит/c")
+                    else if (speed.Text.ToString() == "100 мбит/c")
                     {
                         if (Int32.Parse(lengthLine) < 150)
                         {
@@ -421,7 +466,7 @@ namespace networks
                             MessageBox.Show("Failed");
                         }
                     }
-                    if (speed.Text.ToString() == "1 гбит/c")
+                    else if (speed.Text.ToString() == "1 гбит/c")
                     {
                         if (Int32.Parse(lengthLine) < 150)
                         {
@@ -431,13 +476,15 @@ namespace networks
                         {
                             MessageBox.Show("Failed");
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Succes, but 7 гбит/c");
+
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Failed");
-            }
+            
 
 
         }
@@ -446,30 +493,23 @@ namespace networks
         {
             List<string> list = new List<string>();
             TextBlock selectedType = (TextBlock)typeComboBox.SelectedItem;
-            ComboBox eth = EthernetType;
-            ColumnDefinition gr = GridChange;
             if (selectedType.Text.ToString() == "Витая пара")
             {
-                eth.Visibility = Visibility.Visible;
-                gr.Width = new GridLength(150);
-
+              
                 list.Clear();
                 list.Add("4 Жилы");
                 list.Add("8 Жил");
             }
             if(selectedType.Text.ToString() == "Оптоволокно")
             {
-                eth.Visibility = Visibility.Visible;
-                gr.Width = new GridLength(150);
-
                 list.Clear();
-                list.Add("Одномодовое");
-                list.Add("Многомодовое");
+                list.Add("Ом 1");
+                list.Add("Ом 2");
+                list.Add("Ом 3");
+                list.Add("Ом 4");
             }
             if(selectedType.Text.ToString() == "WI-FI")
             {
-                eth.Visibility = Visibility.Collapsed;
-                gr.Width = new GridLength(0);
                 list.Clear();
                 list.Add("2.4 ГГц");
                 list.Add("5 ГГц");
